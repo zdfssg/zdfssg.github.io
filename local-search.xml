@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2021/02/21/module/"/>
+    <url>/2021/02/21/module/</url>
+    
+    <content type="html"><![CDATA[<h2 id="模块的加载机制"><a href="#模块的加载机制" class="headerlink" title="模块的加载机制"></a>模块的加载机制</h2><h4 id="一-模块加载机制"><a href="#一-模块加载机制" class="headerlink" title="一.模块加载机制"></a>一.模块加载机制</h4><p> 一、模块优先从缓存中进行加载 </p><p>   模块在第一次加载后会被缓存, 如果每次调用 require(‘foo’) 都解析到同一文件，则返回相同的对象,</p><p>  不会导致模块的代码被执行多次</p><p>二、缓存的作用</p><p>   不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的</p><p>  加载效率</p><p>说明：文档地址（<a href="http://nodejs.cn/api/modules.html#modules_caching%EF%BC%89">http://nodejs.cn/api/modules.html#modules_caching）</a></p><h4 id="二-内置模块加载机制"><a href="#二-内置模块加载机制" class="headerlink" title="二.内置模块加载机制"></a>二.内置模块加载机制</h4><p>require() 总是会优先加载核心模块, 比如 require(‘http’) 始终返回内置的 HTTP 模块，即使有同名文件</p><h4 id="三-自定义模块加载机制"><a href="#三-自定义模块加载机制" class="headerlink" title="三.自定义模块加载机制"></a>三.自定义模块加载机制</h4><p> 一、自定义模块的加载机制 </p><p>   使用 require() 方法去加载自定义模块，必须指定 ‘/‘、 ‘./‘ 或 ‘../‘ 开头的路径，如果没有这个</p><p>  路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块</p><p>二、自定义文件模块</p><p>   如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载</p><p>三、自定义目录模块</p><p>   当传递一个目录标识符给 require () 方法时, 加载的顺序如下:</p><ol><li><p>在加载的目录下查找 package.json 的文件, 并寻找 main 属性作为 require 的入口</p></li><li><p>上述找不到, Node.js 将会试图加载目录下的 index.js 或 index.node 文件</p></li></ol><h4 id="四-第三方模块加载机制"><a href="#四-第三方模块加载机制" class="headerlink" title="四.第三方模块加载机制"></a>四.第三方模块加载机制</h4><p> 如果传递给 require() 的模块标识符不是一个核心模块，也没有以 ‘/‘ 、 ‘../‘ 或 ‘./‘ 开头，</p><p>  那么 Node.js 会从当前模块的父目录开始，尝试从它的 /node_modules 目录里加载模块。如果还是没有找到，</p><p>  则移动到再上一层父目录，直到文件系统的根目录。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2021/02/21/npm/"/>
+    <url>/2021/02/21/npm/</url>
+    
+    <content type="html"><![CDATA[<h2 id="npm命令"><a href="#npm命令" class="headerlink" title="npm命令"></a>npm命令</h2><h4 id="一-包管理命令"><a href="#一-包管理命令" class="headerlink" title="一.包管理命令"></a>一.包管理命令</h4><p> 1、下载一个指定的包 </p><p>   <code>npm i 包的具体名称</code> </p><p>2、查看一个指定包</p><p>   <code>npm view 包的具体名称</code></p><p>3、下载指定版本的包</p><p>   <code>npm i 包的具体名称@版本号</code></p><h4 id="二-快速创建包管理配置文件"><a href="#二-快速创建包管理配置文件" class="headerlink" title="二.快速创建包管理配置文件"></a>二.快速创建包管理配置文件</h4><p>在项目的根目录下执行 <code>npm init -y</code> 命令</p><h4 id="三-卸载指定的包"><a href="#三-卸载指定的包" class="headerlink" title="三.卸载指定的包"></a>三.卸载指定的包</h4><p><code>npm uninstall 包名称</code></p><h4 id="四-全局安装包"><a href="#四-全局安装包" class="headerlink" title="四.全局安装包"></a>四.全局安装包</h4><p><code>npm install -g 包名称@版本号</code></p><h4 id="五-发布包"><a href="#五-发布包" class="headerlink" title="五.发布包"></a>五.发布包</h4><p>1.在包的发布目录下执行登录命令</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> login<br></code></pre></td></tr></table></figure><ol start="2"><li><p>在包的发布目录下面执行命令</p><p><code>npm publish</code></p></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ajax</title>
     <link href="/2021/02/04/ajax/"/>
     <url>/2021/02/04/ajax/</url>
