@@ -190,12 +190,11 @@
           
             
           
-          MYSQL命令新建用户：　　　　&gt;CREATE USER name IDENTIFIED BY ‘ssapdrow’;
-　　2、更改密码：
-　　　　&gt;SET PASSWORD FOR name=PASSWORD(‘fdddfd’);
-　　3、权限管理
-　　　　&gt;SHOW GRANTS FOR name;   //查看name用户权限
-　　　　&gt;GRANT SELECT ON
+          MYSQL命令新建用户：CREATE USER name IDENTIFIED BY ‘ssapdrow’;2、更改密码：
+SET PASSWORD FOR name=PASSWORD(‘fdddfd’);
+3、权限管理
+SHOW GRANTS FOR name;   //查看name用户权限
+GRANT SELECT ON db_name.* TO name;　　　　//给name用户db_na
         </a>
       </p>
 
