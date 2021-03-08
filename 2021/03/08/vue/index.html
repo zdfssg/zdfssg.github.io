@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      948 字
+      949 字
     </span>
   
 
@@ -244,25 +244,32 @@
 使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 v-on:click.prevent.self 会阻止所有的点击，而 v-on:click.self.prevent 只会阻止对元素自身的点击。</li>
 </ol>
 <h4 id="按键修饰符"><a href="#按键修饰符" class="headerlink" title="按键修饰符"></a>按键修饰符</h4><p>在监听键盘事件时，我们经常需要检查详细的按键。Vue 允许为 v-on 在监听键盘事件时添加按键修饰符：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html">```<br><span class="hljs-comment">&lt;!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup.enter</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>在上述示例中，处理函数只会在 $event.key 等于 PageDown 时被调用。</p>
-<h5 id="按键码"><a href="#按键码" class="headerlink" title="按键码"></a>按键码</h5><p>为了在必要的情况下支持旧浏览器，Vue 提供了绝大多数常用的按键码的别名：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup.page-down</span>=<span class="hljs-string">&quot;onPageDown&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>可以直接将 KeyboardEvent.key 暴露的任意有效按键名转换为 kebab-case 来作为修饰符。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><br></code></pre></td></tr></table></figure>
+<!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+<input v-on:keyup.enter="submit">
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clean">在上述示例中，处理函数只会在 $event.key 等于 PageDown 时被调用。<br>##### 按键码<br>为了在必要的情况下支持旧浏览器，Vue 提供了绝大多数常用的按键码的别名：<br><br>​```html<br>&lt;input v-on:keyup.page-down=<span class="hljs-string">&quot;onPageDown&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+可以直接将 KeyboardEvent.key 暴露的任意有效按键名转换为 kebab-case 来作为修饰符。
+* .enter
+
 <ul>
-<li>.enter</li>
-<li>.tab</li>
-<li>.delete (捕获“删除”和“退格”键)</li>
-<li>.esc</li>
-<li>.space</li>
-<li>.up</li>
-<li>.down</li>
-<li>.left</li>
-<li>.right<br>有一些按键 (.esc 以及所有的方向键) 在 IE9 中有不同的 key 值, 如果你想支持 IE9，这些内置的别名应该是首选。<br>你还可以通过全局 config.keyCodes 对象自定义按键修饰符别名：<br>···html<br>// 可以使用 <code>v-on:keyup.f1</code><br>Vue.config.keyCodes.f1 = 112<pre><code>
-</code></pre>
+<li><p>.tab</p>
 </li>
+<li><p>.delete (捕获“删除”和“退格”键)</p>
+</li>
+<li><p>.esc</p>
+</li>
+<li><p>.space</p>
+</li>
+<li><p>.up</p>
+</li>
+<li><p>.down</p>
+</li>
+<li><p>.left</p>
+</li>
+<li><p>.right<br>有一些按键 (.esc 以及所有的方向键) 在 IE9 中有不同的 key 值, 如果你想支持 IE9，这些内置的别名应该是首选。<br>你还可以通过全局 config.keyCodes 对象自定义按键修饰符别名：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html">// 可以使用 `v-on:keyup.f1`<br>Vue.config.keyCodes.f1 = 112<br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><br>### Vue样式 <br><span class="hljs-number">1.</span><span class="hljs-keyword">class</span><br>    对象：&lt;标签 :<span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;</span>&#123;<span class="hljs-class"><span class="hljs-keyword">class</span>名1:<span class="hljs-type">变量名1</span>,<span class="hljs-type">class名2:变量名2&#125;&quot;/&gt;</span></span><br>    数组: &lt;标签 :<span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;[变量名1,<span class="hljs-type">变量名2</span>,<span class="hljs-type">&#x27;class名1&#x27;</span>,<span class="hljs-type">&#x27;class名2&#x27;]&quot;/&gt;</span></span><br>    属性绑定: &lt;标签 <span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;条件? &#x27;<span class="hljs-title">class</span>名1&#x27;:<span class="hljs-type">&#x27;class名2&#x27;&quot;/&gt;</span></span><br><span class="hljs-number">2.</span>style<br>    对象: &lt;标签 :style=<span class="hljs-string">&quot;&#123;css属性名:变量名1 &#125;&quot;</span> /&gt;<br><br><br></code></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="Vue样式"><a href="#Vue样式" class="headerlink" title="Vue样式"></a>Vue样式</h3><p>1.class<br>    对象：&lt;标签 :class=”{class名1:变量名1,class名2:变量名2}”/&gt;<br>    数组: &lt;标签 :class=”[变量名1,变量名2,’class名1’,’class名2’]”/&gt;<br>    属性绑定: &lt;标签 class=”条件? ‘class名1’:’class名2’”/&gt;<br>2.style<br>    对象: &lt;标签 :style=”{css属性名:变量名1 }” /&gt;</p>
 
             </div>
             <hr>
